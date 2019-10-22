@@ -1,0 +1,22 @@
+{
+  "name": "virtual-pet",
+  "version": "1.0.0",
+  "description": "\"virtual pet friend\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spwhittaker/virtual-pet.git"
+  },
+  "author": "Stephen Whittaker",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/spwhittaker/virtual-pet/issues"
+  },
+  "homepage": "https://github.com/spwhittaker/virtual-pet#readme",
+  "devDependencies": {
+    "jest": "^24.9.0"
+  }
+}
