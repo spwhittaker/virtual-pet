@@ -4,8 +4,13 @@ function Pet(name) {
 
   return  { name: name,
             age: 0,
-            growUp: function() {
-            return this.age ++;
+            hunger: 0,
+            fitness: 10,
+            growUp: function(increase = 1) {
+            this.age += increase;
+            this.hunger += increase * 5;
+            this.fitness -= increase * 3;
+            return;
             }};
 };
 
