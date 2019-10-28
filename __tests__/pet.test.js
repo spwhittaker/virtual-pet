@@ -6,6 +6,7 @@ const maxFitness = require('../src/pet'); */
 
 const Pet = petImport.Pet;
 const maxFitness = petImport.maxFitness;
+const deadMessage = petImport.deadMessage;
 
 
 /* describe("check that the variable pet has an assignment"){
@@ -84,6 +85,55 @@ expect(fittishPet.fitness).toBeLessThanOrEqual(maxFitness);
     feedPet.hunger = 0;
     feedPet.feed();
     expect(feedPet.hunger).toEqual(0);
+  });
+
+  it("says it needs a walk on 3 or less fitness", () => {
+    const checkupPet = new Pet('checkup');
+    checkupPet.fitness = 1;
+    checkupPet.hunger = 3;
+    expect(checkupPet.checkup()).toBe("I need a walk")
+  });
+
+  it("says it is hungry on 5 hunger or over", () => {
+    const checkupPet = new Pet('checkup');
+    checkupPet.fitness = 5;
+    checkupPet.hunger = 7;
+    expect(checkupPet.checkup()).toBe("I am hungry")
+  });
+
+  it("says it is hungry and needs a walk if both above conditions met", () => {
+    const checkupPet = new Pet('checkup');
+    checkupPet.fitness = 1;
+    checkupPet.hunger = 7;
+    expect(checkupPet.checkup()).toBe("I am hungry AND need a walk")
+  });
+
+  it("says it is fine if neither condition is met", () => {
+    const checkupPet = new Pet('checkup');
+    checkupPet.fitness = 4;
+    checkupPet.hunger = 4;
+    expect(checkupPet.checkup()).toBe("I feel great!")
+  });
+
+  it("throws an error trying to feed dead pet", () => {
+    const deadPet = new Pet('corpse');
+    deadPet.hunger = 10;
+
+    expect(() => deadPet.feed()).toThrow(deadMessage);
+  });
+
+  it("throws an error trying to walk dead pet", () => {
+    const deadPet = new Pet('corpse');
+    deadPet.fitness = 0;
+
+    expect(() => deadPet.walk()).toThrow(deadMessage);
+  });
+
+  it("throws an error trying to age dead pet", () => {
+    const deadPet = new Pet('corpse');
+    deadPet.age = 30;
+
+    expect(() => deadPet.growUp()).toThrow(deadMessage);
   });
 
 });
