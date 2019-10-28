@@ -1,8 +1,12 @@
 const TestRunner = require("jest-runner");
+const petImport = require('../src/pet');
 
+/* const Pet  = require('../src/pet');
+const maxFitness = require('../src/pet'); */
 
-const Pet  = require('../src/pet');
-const maxFitness = require('../src/pet');
+const Pet = petImport.Pet;
+const maxFitness = petImport.maxFitness;
+
 
 /* describe("check that the variable pet has an assignment"){
     expect(pet).toBe(true);
@@ -53,18 +57,33 @@ describe('constructor', () => {
     expect(unfitPet.fitness).toBeGreaterThan(1);
   });
 
-  it('stays at fitness 10 on walk if already at max', () => {
+  it('stays at fitness max on walk if already at max', () => {
     const fitPet = new Pet('fit');
-    fitPet.fitness = 10; 
+    fitPet.fitness = maxFitness; 
     fitPet.walk();
-    expect(fitPet.fitness).toEqual(10);
+    expect(fitPet.fitness).toEqual(maxFitness);
   });
 
-  it("doesn't go above fitness of 10", () => {
+  it("doesn't go above fitness of maxFitness", () => {
 const fittishPet = new Pet('fittish');
 fittishPet.fitness = 9;
 fittishPet.walk();
-expect(fittishPet.fitness).toBeLessThanOrEqual(10);
+expect(fittishPet.fitness).toBeLessThanOrEqual(maxFitness);
+  });
+
+  it("has hunger that decreases after feeding", () => {
+    const feedPet = new Pet('feed');
+    feedPet.hunger = 5;
+    const initialHunger = feedPet.hunger;
+    feedPet.feed();
+    expect(feedPet.hunger).toBeLessThan(initialHunger);
+  });
+
+  it("can't get less hungry than 0", () => {
+    const feedPet = new Pet('feed');
+    feedPet.hunger = 0;
+    feedPet.feed();
+    expect(feedPet.hunger).toEqual(0);
   });
 
 });

@@ -2,6 +2,7 @@ let hungerIncreaser = 5;
 let fitnessIncreaser = 3;
 let walkFitnessIncreaser = 4;
 let maxFitness = 10;
+let hungerDecreaser = 3;
 
 function Pet(name) {
     return {name: name,
@@ -15,10 +16,14 @@ function Pet(name) {
             walk: function(session = 1){
             this.fitness += session * walkFitnessIncreaser;
             if (this.fitness > maxFitness){this.fitness = maxFitness;
+            }},
+            feed: function(decrease = 1) {
+              this.hunger -= decrease * hungerDecreaser;
+              if (this.hunger < 0) {this.hunger = 0;}
             }
           }
 
-            }};
+            };
 
 
 const bobby = new Pet('Bobby');
@@ -28,4 +33,4 @@ bobby.growUp();
 console.log(bobby);
 console.log(dobby);
 
-module.exports = Pet;
+module.exports = {Pet, maxFitness};
