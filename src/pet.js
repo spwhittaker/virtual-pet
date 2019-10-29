@@ -78,7 +78,7 @@ function Pet(name) {
     haveBaby: function(babyName) {
       const babyPet = Pet(babyName);
       babyPet.parent = this.name;
-      this.children.push({ name: babyName });
+      this.children.push(babyPet);
       return babyPet;
     }
   };
