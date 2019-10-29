@@ -1,9 +1,18 @@
-let hungerIncreaser = 5;
+/* let hungerIncreaser = 5;
 let fitnessIncreaser = 3;
 let walkFitnessIncreaser = 4;
 let maxFitness = 10;
 let hungerDecreaser = 3;
-let deadMessage = "Your pet is no longer alive :("
+let deadMessage = "Your pet is no longer alive :(" */
+const CONSTANTS = {
+  hungerIncreaser: 5,
+  fitnessIncreaser: 3,
+  walkFitnessIncreaser: 4,
+  maxFitness: 10,
+  hungerDecreaser: 3,
+  deadMessage: "Your pet is no longer alive :("};
+
+const {hungerIncreaser, fitnessIncreaser, walkFitnessIncreaser,maxFitness,hungerDecreaser,deadMessage} = CONSTANTS;
 
 function Pet(name) {
     return {name: name,
@@ -42,6 +51,13 @@ function Pet(name) {
               break;
               default: return "I feel great!";
               };
+            },
+            haveBaby: function (babyName)
+            {const babyPet = new Pet (babyName);
+              babyPet.parent = this.name;
+              this.children = [];
+              this.children.push({name: babyName});
+
             }
           }
 
@@ -55,4 +71,4 @@ bobby.growUp();
 console.log(bobby);
 console.log(dobby);
 
-module.exports = {Pet, maxFitness, deadMessage};
+module.exports = {Pet, CONSTANTS};

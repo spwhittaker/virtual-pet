@@ -5,8 +5,10 @@ const petImport = require('../src/pet');
 const maxFitness = require('../src/pet'); */
 
 const Pet = petImport.Pet;
-const maxFitness = petImport.maxFitness;
-const deadMessage = petImport.deadMessage;
+const CONSTANTS = petImport.CONSTANTS;
+const {hungerIncreaser, fitnessIncreaser, walkFitnessIncreaser,maxFitness,hungerDecreaser,deadMessage} = CONSTANTS;
+/* const maxFitness = petImport.maxFitness;
+const deadMessage = petImport.deadMessage; */
 
 
 /* describe("check that the variable pet has an assignment"){
@@ -137,3 +139,12 @@ expect(fittishPet.fitness).toBeLessThanOrEqual(maxFitness);
   });
 
 });
+
+describe('have child', () => {
+it("creates a new Pet as child of the Pet where the method is called", () => {
+  const parentPet = new Pet('Mum');
+  const childPet = parentPet.haveBaby('Kid');
+  expect(parentPet.children).toEqual([{name: 'Kid'}]);
+  expect(childPet.name).toEqual('Kid');
+  expect(childPet.parent).toEqual('Mum');
+})})
