@@ -11,7 +11,9 @@ const {
   fitnessIncreaser,
   walkFitnessIncreaser,
   maxFitness,
+  maxAge,
   hungerDecreaser,
+  maxHunger,
   deadMessage
 } = CONSTANTS;
 /* const maxFitness = petImport.maxFitness;
@@ -146,8 +148,8 @@ describe("have child", () => {
     const parentPet = new Pet("Mum");
     const childPet = parentPet.haveBaby("Kid");
     //console.log(childPet);
-    expect(parentPet.children).toEqual([{ name: "Kid" }]);
+    expect(parentPet.children).toEqual([childPet]);
     expect(childPet.name).toEqual("Kid");
-    expect(childPet.parent).toEqual("Mum");
+    expect(childPet.parent).toEqual(parentPet);
   });
 });
