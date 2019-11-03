@@ -4,83 +4,45 @@ This is a project to make a virtual pet that is similar to --but legally distinc
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+Just download the repo and run 'npm install' in your favourite terminal; then you should be good to go. 
 
 ### Prerequisites
-
-What things you need to install the software and how to install them
 
 You will need Node, Jest, NPM and a web browser.
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
+Run 'npm install' in your favourite terminal and load up pet.js in your favourite browser 
 
-Say what the step will be
+## Tests
 
-```
-Give the example
-```
+You can run 'npm install -D jest' if you want to run through the software tests.
 
-And repeat
+They can then be run using 'npm test'.
 
-```
-until finished
-```
+You can test that pets are created, can be fed, can't go above max fitness, can die, have children and more. 
 
-End with an example of getting some data out of the system or using it for a little demo
+e.g. 
 
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
-## Built With
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+it("returns an object", () => {
+    expect(new Pet("Fido")).toBeInstanceOf(Object);
+  });
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+Please [email me](mailto:stephenwhittaker23@gmail.com) or log an issue.
 
-## Versioning
+## Author
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+**Stephen Whittaker** - [spwhittaker](https://github.com/spwhittaker)
 
-## Authors
+See also the list of [contributors](https://github.com/spwhittaker/virtual-pet/graphs/contributors) who participated in this project.
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+## Acknowledgements
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+Thank you to:
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+* Manchester Codes (https://github.com/MCRcodes), for the materials on how to code this little guy
+* Aki Maita, for creating the Tamagotchi
+* Sam Millward (https://github.com/samueljmillward/), for pairing with me 
 
